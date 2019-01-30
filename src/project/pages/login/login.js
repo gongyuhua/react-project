@@ -1,14 +1,25 @@
 import React, { Component } from "react";
-import { Form, Icon, Input, Button } from "antd";
+import { Form, Icon, Input, Button, notification } from "antd";
 import "./login.css";
 
-class LoginPage extends React.Component {
+class LoginPage extends Component {
   handleSubmit = e => {
-    e.preventDefault();
+    e.preventDefault(); //prevent dubbed bubbling
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        console.log("Received values of form: ", values);
+        if (values.userName === "123" && values.password === "123") {
+          this.props.history.push("index");
+          sessionStorage.setItem("name", values.userName); //save to sessionStorage
+        } else {
+          this.openNotificationWithIcon("error");
+        }
       }
+    });
+  };
+  openNotificationWithIcon = type => {
+    notification[type]({
+      message: "please type correct username and password",
+      description: "User name is 123 "
     });
   };
   render() {
@@ -37,7 +48,7 @@ class LoginPage extends React.Component {
           )}
         </Form.Item>
         <Button type="primary" htmlType="submit" className="login-form-button">
-          Log in
+          Log in please
         </Button>
       </Form>
     );
