@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "antd/dist/antd.css";
-import { Layout, Menu, Icon } from "antd";
+import { Layout, Menu, Icon, Switch } from "antd";
 import Main from "./main";
 import Top from "./header";
 import Bottom from "./footer";
@@ -46,6 +46,10 @@ class Index extends Component {
             selectedKeys={[this.state.current]}
             mode="inline"
           >
+            <Menu.Item key="1">
+              <Icon type="mail" />
+              Navigation One
+            </Menu.Item>
             <SubMenu
               key="sub1"
               title={
@@ -54,7 +58,12 @@ class Index extends Component {
                   <span>Navigation One</span>
                 </span>
               }
-            />
+            >
+              <Menu.Item key="1">Option 1</Menu.Item>
+              <Menu.Item key="2">Option 2</Menu.Item>
+              <Menu.Item key="3">Option 3</Menu.Item>
+              <Menu.Item key="4">Option 4</Menu.Item>
+            </SubMenu>
             <SubMenu
               key="sub2"
               title={
@@ -86,6 +95,14 @@ class Index extends Component {
               <Menu.Item key="12">Option 12</Menu.Item>
             </SubMenu>
           </Menu>
+          <Switch
+            checked={this.state.theme === "dark"}
+            onChange={this.changeTheme}
+            checkedChildren="Dark"
+            unCheckedChildren="Light"
+          />
+          <br />
+          <br />
         </Sider>
         <Layout>
           <Top />
