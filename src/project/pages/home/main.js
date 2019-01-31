@@ -3,7 +3,7 @@ import "antd/dist/antd.css";
 import { Layout } from "antd";
 import Music from "../music/music";
 import Home from "../index/index";
-import Application from "../tool/applications";
+import Application from "../tool/applications/applications";
 import Editor from "../tool/editor";
 import Todo from "../tool/todo";
 import Pics from "../art/pic";
