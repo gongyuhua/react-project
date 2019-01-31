@@ -5,6 +5,7 @@ import Main from "./main";
 import Top from "./header";
 import Bottom from "./footer";
 import { menuList } from "../../utils/data";
+import { Link } from "react-router-dom";
 
 const { Sider } = Layout;
 const SubMenu = Menu.SubMenu;
@@ -54,7 +55,7 @@ class Index extends Component {
               if (item.children && item.children.length > 0) {
                 return (
                   <SubMenu
-                    key={item.id}
+                    key={item.url}
                     title={
                       <span>
                         <Icon type={item.icon} />
@@ -63,15 +64,21 @@ class Index extends Component {
                     }
                   >
                     {item.children.map((v, j) => {
-                      return <Menu.Item key={j}>{v.name}</Menu.Item>;
+                      return (
+                        <Menu.Item key={v.url}>
+                          <Link to={"/index/" + v.url}>{v.name}</Link>
+                        </Menu.Item>
+                      );
                     })}
                   </SubMenu>
                 );
               }
               return (
-                <Menu.Item key={item.id}>
-                  <Icon type={item.icon} />
-                  <span>{item.name}</span>
+                <Menu.Item key={item.url}>
+                  <Link to={"/" + item.url}>
+                    <Icon type={item.icon} />
+                    <span>{item.name}</span>
+                  </Link>
                 </Menu.Item>
               );
             })}

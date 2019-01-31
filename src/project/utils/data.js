@@ -22,11 +22,11 @@ export var menuList = [
     children: [
       {
         name: "Applications",
-        url: "tools"
+        url: "applications"
       },
       {
         name: "Editors",
-        url: "editor"
+        url: "editors"
       },
       {
         name: "To-do Lists",
