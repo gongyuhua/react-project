@@ -8,7 +8,7 @@ class LoginPage extends Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         if (values.userName === "123" && values.password === "123") {
-          this.props.history.push("index");
+          this.props.history.push("/index");
           sessionStorage.setItem("name", values.userName); //save to sessionStorage
         } else {
           this.openNotificationWithIcon("error");
@@ -18,7 +18,7 @@ class LoginPage extends Component {
   };
   openNotificationWithIcon = type => {
     notification[type]({
-      message: "please type correct username and password",
+      message: "please type in correct username and password",
       description: "User name is 123 "
     });
   };

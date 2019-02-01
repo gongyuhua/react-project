@@ -15,14 +15,13 @@ class EchartList extends Component {
       series: [
         {
           data: this.props.data,
-          type: this.props.type
+          type: this.props.type,
         }
       ]
     };
 
     return (
       <ReactEcharts
-        title="Weekly Data"
         option={option}
         style={{ width: "100%", height: "300px" }}
       />

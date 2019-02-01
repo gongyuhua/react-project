@@ -10,7 +10,7 @@ class Application extends Component {
     return (
       <div>
         <Tabs defaultActiveKey="1">
-          <TabPane tab="Salary Calculator" key="1" style={{ height: 200 }}>
+          <TabPane tab="Salary Calculator" key="1" style={{ height: 300 }}>
             <Salary />
           </TabPane>
           <TabPane tab="Rent Suggestion " key="2">

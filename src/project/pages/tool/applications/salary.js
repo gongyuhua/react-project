@@ -32,15 +32,15 @@ class Salary extends Component {
   }
   render() {
     return (
-      <div>
-        <div style={{ marginBottom: 5, width: "500px" }}>
+      <div style={{ marginTop: 20 }}>
+        <div>
           <Input
             addonBefore="Gross Salary"
             addonAfter="$"
             onChange={event => this.handleChange(event)}
           />
         </div>
-        <div style={{ marginBottom: 5, width: "500px" }}>
+        <div>
           <Input
             addonBefore="Medical Insurance"
             addonAfter="$"
@@ -48,17 +48,17 @@ class Salary extends Component {
             readOnly
           />
         </div>
-        <div style={{ marginBottom: 5, width: "500px" }}>
+        <div>
           <Input addonBefore="Tax" addonAfter="$" value={this.state.tax} />
         </div>
-        <div style={{ marginBottom: 5, width: "500px" }}>
+        <div>
           <Input
             addonBefore="Social Security"
             addonAfter="$"
             value={this.state.social}
           />
         </div>
-        <div style={{ marginBottom: 5, width: "500px" }}>
+        <div>
           <Input
             addonBefore="Net Income"
             addonAfter="$"
