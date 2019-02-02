@@ -4,6 +4,7 @@ import { Tabs } from "antd";
 import Salary from "./salary";
 import Rent from "./rent";
 import Bmi from "./health";
+import Age from "./age";
 const TabPane = Tabs.TabPane;
 
 class Application extends Component {
@@ -21,7 +22,7 @@ class Application extends Component {
             <Bmi />
           </TabPane>
           <TabPane tab="Age Calculator" key="4">
-            Content of Tab Pane 4
+            <Age />
           </TabPane>
           <TabPane tab="Comming Soon" key="5" disabled>
             Content of Tab Pane 5

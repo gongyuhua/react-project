@@ -8,6 +8,7 @@ import Editor from "../tool/editor";
 import Todo from "../tool/todo";
 import Pics from "../art/pic";
 import { Route } from "react-router-dom";
+import Age from "../tool/applications/age";
 const { Content } = Layout;
 
 class Main extends Component {
@@ -26,6 +27,7 @@ class Main extends Component {
         <Route path="/index/applications" component={Application} />
         <Route path="/index/editors" component={Editor} />
         <Route path="/index/todo" component={Todo} />
+        <Route path="/index/age" component={Age} />
         <Route path="/index/pic" component={Pics} />
       </Content>
     );
