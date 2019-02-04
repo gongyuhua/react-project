@@ -1,13 +1,13 @@
 import { handleActions } from "redux-actions";
 
-export const hanAc = handleActions(
+export const aaa = handleActions(
   {
     ADD(state, action) {
-      return state + 1;
+      return state + parseInt(action.payload.text);
     },
     DEL(state, action) {
-      return state - 1;
+      return state - parseInt(action.payload.text);
     }
   },
-  100
+  10
 );

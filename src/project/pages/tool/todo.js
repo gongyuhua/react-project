@@ -1,43 +1,50 @@
-import React, { Component } from "react";
-import "antd/dist/antd.css";
-import { add, del } from "../../action/action";
+import React from "react";
 import { connect } from "react-redux";
+import { add, del } from "../../action/action";
 
-class Todo extends Component {
-  /*submit2 = event => {
-    event.preventDefault();
+//@connect 连接  修饰器
+@connect(state => ({
+  abc: state.abc
+}))
+class Todo extends React.Component {
+  submit2 = e => {
+    e.preventDefault();
     if (!this.input.value) {
-      return "aa";
+      return;
     }
     this.props.dispatch(
-      //this.props === store
       add({
+        //this.props   == store
         text: this.input.value,
         type: "ADD"
       })
     );
     this.input.value = "";
   };
-  del = event => {
-    event.preventDefault();
+  del = e => {
+    e.preventDefault();
     if (!this.input.value) {
-      return "bb";
+      return;
     }
     this.props.dispatch(
       del({
+        //this.props   == store
         text: this.input.value,
         type: "DEL"
       })
     );
     this.input.value = "";
-  };*/
+  };
 
   render() {
     return (
       <div>
-        333
-        {/*<h1>{this.props.hanAc}</h1>
-        <input placeholder="what do you want to do" className="todo-input" />
+        <h1>{this.props.aaa}</h1>
+        <input
+          placeholder="你想做点什么"
+          ref={dom => (this.input = dom)}
+          className="todo-input"
+        />
         <button
           type="submit"
           className="todo-btn"
@@ -51,10 +58,9 @@ class Todo extends Component {
           onClick={event => this.del(event)}
         >
           del
-    </button>*/}
+        </button>
       </div>
     );
   }
 }
-
 export default Todo;

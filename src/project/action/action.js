@@ -1,4 +1,4 @@
-//import { createAction } from "react-actions";
+import { createAction } from "redux-actions";
 
-//export const add = createAction(ADD);
-//export const del = createAction(DEL);
+export const add = createAction("ADD");
+export const del = createAction("DEL");
