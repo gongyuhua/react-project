@@ -42,11 +42,11 @@ export const todoList = handleActions(
       ];
     },
     DEL_TODO(state, action) {
-      alert(JSON.stringify(action.payload));
+      //alert(JSON.stringify(action.payload));
       return state.filter((v, i) => v.id !== action.payload.id);
     },
     TOGGLE_TODO(state, action) {
-      console.log(action.payload.id);
+      //console.log(action.payload.id);
       return state.map(item => {
         if (item.id !== action.payload.id) {
           return item;
