@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import "antd/dist/antd.css";
-import { Input, Select, message } from "antd";
+import { Input } from "antd";
 import "../applications/index.css";
-const Option = Select.Option;
 
 class Salary extends Component {
   constructor() {

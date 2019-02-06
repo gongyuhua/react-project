@@ -1,64 +1,92 @@
 import React from "react";
 import { connect } from "react-redux";
-import { add, del } from "../../action/action";
+import { addTodo, delTodo, toggleTodo } from "../../action/action";
+import "../../pages/tool/index.scss";
 
-//@connect 连接  修饰器
 @connect(state => ({
-  abc: state.abc
+  todoList: state.todoList
 }))
 class Todo extends React.Component {
-  submit2 = e => {
+  submit = e => {
+    var todoLength = this.props.todoList.length;
     e.preventDefault();
     if (!this.input.value) {
       return;
     }
     this.props.dispatch(
-      add({
+      addTodo({
         //this.props   == store
+        id: todoLength++,
         text: this.input.value,
-        type: "ADD"
+        check: false,
+        type: "ADD_TODO"
       })
     );
     this.input.value = "";
   };
-  del = e => {
-    e.preventDefault();
-    if (!this.input.value) {
-      return;
-    }
+  del = id => {
     this.props.dispatch(
-      del({
+      delTodo({
         //this.props   == store
-        text: this.input.value,
-        type: "DEL"
+        id: id,
+        type: "DEL_TODO"
       })
     );
-    this.input.value = "";
+  };
+
+  toggleTodo = id => {
+    this.props.dispatch(
+      toggleTodo({
+        //this.props   == store
+        id: id,
+        type: "TOGGLE_TODO"
+      })
+    );
   };
 
   render() {
+    const { todoList } = this.props;
     return (
-      <div>
-        <h1>{this.props.aaa}</h1>
-        <input
-          placeholder="你想做点什么"
-          ref={dom => (this.input = dom)}
-          className="todo-input"
-        />
-        <button
-          type="submit"
-          className="todo-btn"
-          onClick={event => this.submit2(event)}
-        >
-          add
-        </button>
-        <button
-          type="submit"
-          className="todo-btn"
-          onClick={event => this.del(event)}
-        >
-          del
-        </button>
+      <div className="todo-box">
+        <div className="todo-innerBox">
+          <div className="todo-tab" />
+          <ul className="list-group">
+            {todoList.map(todo => (
+              <li
+                className="todo-list_li"
+                style={{ textDecoration: todo.check ? "line-through" : "none" }}
+              >
+                <input
+                  type="checkbox"
+                  className="check-box"
+                  checked={todo.check}
+                  onClick={id => this.toggleTodo(todo.id)}
+                />
+                {todo.text}
+                <button
+                  className="todo-list_del"
+                  onClick={id => this.del(todo.id)}
+                >
+                  Delete
+                </button>
+              </li>
+            ))}
+          </ul>
+          <form className="todo-add">
+            <input
+              placeholder="what do you want to do"
+              ref={dom => (this.input = dom)}
+              className="todo-input"
+            />
+            <button
+              type="submit"
+              className="todo-btn"
+              onClick={event => this.submit(event)}
+            >
+              Add tasks
+            </button>
+          </form>
+        </div>
       </div>
     );
   }

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Table, Select } from "antd";
-
 import fetchJsonp from "fetch-jsonp";
+
 const Option = Select.Option;
 
 class Music extends Component {
@@ -110,6 +110,7 @@ class Music extends Component {
     return (
       <div>
         <div>
+          {this.props.aaa}
           <Select
             defaultValue={selectorData[0].name}
             style={{ width: 120 }}

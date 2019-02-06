@@ -11,3 +11,49 @@ export const aaa = handleActions(
   },
   10
 );
+
+var lists = [
+  {
+    id: 1,
+    text: "Phone",
+    check: false
+  },
+  {
+    id: 2,
+    text: "Handbags",
+    check: false
+  },
+  {
+    id: 3,
+    text: "Cloth",
+    check: true
+  }
+];
+export const todoList = handleActions(
+  {
+    ADD_TODO(state, action) {
+      return [
+        ...state,
+        {
+          id: action.payload.id,
+          text: action.payload.text,
+          check: action.payload.check
+        }
+      ];
+    },
+    DEL_TODO(state, action) {
+      alert(JSON.stringify(action.payload));
+      return state.filter((v, i) => v.id !== action.payload.id);
+    },
+    TOGGLE_TODO(state, action) {
+      console.log(action.payload.id);
+      return state.map(item => {
+        if (item.id !== action.payload.id) {
+          return item;
+        }
+        return Object.assign(item, { check: !item.check });
+      });
+    }
+  },
+  lists
+);
