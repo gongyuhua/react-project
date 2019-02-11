@@ -13,12 +13,12 @@ export default class MyEditor extends Component {
     super(props);
     this.state = {
       editorState: "",
-      editorContent: undefined //content of edit
+      editorContent: undefined //content to edit
     };
   }
   //state change of edit
   onEditorStateChange = editorState => {
-    console.log("aa"); //先触发aa
+    console.log("aa");
     this.setState({
       editorState: editorState
     });
