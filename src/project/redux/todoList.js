@@ -57,3 +57,16 @@ export const todoList = handleActions(
   },
   lists
 );
+
+var filterInit = {
+  filter: "SHOW_ALL"
+};
+export const setVisibility = handleActions(
+  {
+    VISIBILITY_TODO(state, action) {
+      // console.log(action.payload);
+      return { ...state, ...action.payload };
+    }
+  },
+  filterInit
+);

@@ -6,6 +6,7 @@ import Routes from "./project/router";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import rootReducer from "./project/redux/index";
+import "./index.scss";
 
 var store = createStore(rootReducer);
 ReactDOM.render(

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Form, Icon, Input, Button, notification } from "antd";
-import "./login.css";
 
 class LoginPage extends Component {
   handleSubmit = e => {

@@ -1,13 +1,29 @@
 import React, { Component } from "react";
-import "antd/dist/antd.css";
 import { Layout } from "antd";
+import "./footer.scss";
 const { Footer } = Layout;
 
 class Bottom extends Component {
+  constructor() {
+    super();
+    this.state = {
+      n: 0
+    };
+  }
+  tick = () => {
+    this.setState({ n: this.state.n + 1 });
+  };
+  componentDidMount() {
+    this.timer = setInterval(this.tick, 1000);
+  }
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
   render() {
+    var name = sessionStorage.getItem("name");
     return (
-      <Footer style={{ textAlign: "center" }}>
-        Ant Design ©2018 Created by Ant UED
+      <Footer className="bottom animated bounceInLeft">
+        {name}You have been on this web application for {this.state.n}seconds!
       </Footer>
     );
   }

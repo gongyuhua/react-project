@@ -110,7 +110,6 @@ class Music extends Component {
     return (
       <div>
         <div>
-          {this.props.aaa}
           <Select
             defaultValue={selectorData[0].name}
             style={{ width: 120 }}

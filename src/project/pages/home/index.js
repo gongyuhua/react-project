@@ -6,6 +6,7 @@ import Top from "./header";
 import Bottom from "./footer";
 import { menuList } from "../../utils/data";
 import { Link } from "react-router-dom";
+import "./index.scss";
 
 const { Sider } = Layout;
 const SubMenu = Menu.SubMenu;

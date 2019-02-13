@@ -9,6 +9,7 @@ import Pics from "../art/pic";
 import { Route } from "react-router-dom";
 import Age from "../tool/applications/age";
 import MyEditor from "../tool/applications/editor";
+import "./content.scss";
 const { Content } = Layout;
 
 class Main extends Component {

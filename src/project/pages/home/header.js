@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "antd/dist/antd.css";
 import { Layout, Icon } from "antd";
+import "./header.scss";
 const { Header } = Layout;
 
 class Top extends Component {
