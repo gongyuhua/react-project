@@ -72,6 +72,7 @@ class Music extends Component {
       }
     )
       .then(function(response) {
+        console.log(response);
         return response.json();
       })
       .then(data => {
