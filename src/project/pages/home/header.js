@@ -14,6 +14,7 @@ class Top extends Component {
   componentDidMount() {
     console.log(this.props.history);
   }
+
   goBack() {
     this.props.history.push("/login");
   }

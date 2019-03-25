@@ -23,7 +23,7 @@ class Bottom extends Component {
     var name = sessionStorage.getItem("name");
     return (
       <Footer className="bottom animated bounceInLeft">
-        {name}You have been on this web application for {this.state.n}seconds!
+        {name} You have been on this web application for {this.state.n} seconds!
       </Footer>
     );
   }

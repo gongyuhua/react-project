@@ -21,7 +21,15 @@ class Index extends Component {
     };
   }
   componentDidMount() {
-    console.log(menuList);
+    console.log(this.props);
+    this.defaultLoad();
+  }
+  defaultLoad() {
+    if (sessionStorage.name) {
+      this.props.history.push("/index");
+    } else {
+      this.props.history.push("/login");
+    }
   }
   toggle = () => {
     this.setState({
@@ -42,9 +50,24 @@ class Index extends Component {
 
   render() {
     return (
-      <Layout>
+      <Layout className="containAll">
         <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
-          <div className="logo" />
+          <div className="logo">
+            {this.state.theme === "light" ? (
+              <a>
+                <Icon type="github" className="github" />
+              </a>
+            ) : (
+              <a>
+                <Icon type="github" className="github white" />
+              </a>
+            )}
+            {this.state.theme === "light" ? (
+              <span className="author">My Homepage</span>
+            ) : (
+              <span className="author white">My Homepage</span>
+            )}
+          </div>
           <Menu
             theme={this.state.theme}
             onClick={this.handleClick}
@@ -131,7 +154,11 @@ class Index extends Component {
           </Menu>
         </Sider>
         <Layout>
-          <Top />
+          <Top
+            collapsed={this.state.collapsed}
+            toggle={this.toggle}
+            history={this.props.history}
+          />
           <Main />
           <Bottom />
         </Layout>
